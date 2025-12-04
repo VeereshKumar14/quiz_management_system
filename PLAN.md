@@ -57,3 +57,4 @@ Build a small production ready Quiz management system with:
 - improve the UI/UX using Material UI or Tawilwind CSS
 - Add the progress indicatiors and timers for user player page
 - Add analytics 
+- Need to add Rspec and unit test case

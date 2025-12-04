@@ -45,6 +45,10 @@ module Api
                 result = QuizResultService.new(quiz, answers).call
 
                 render json: result
+                rescue ActiveRecord::RecordNotFound
+                    render json: { error: "Quiz not found" }, status: :not_found
+                rescue ActionController::ParameterMissing => e
+                    render json: { error: e.message }, status: :unprocessable_entity
             end
         end
     end
