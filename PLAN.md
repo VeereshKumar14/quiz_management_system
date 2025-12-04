@@ -35,6 +35,12 @@ Build a small production ready Quiz management system with:
 
 ### Backend
 
+- install all the required gems
+- generate rails models 
+- Created the DB for those models
+
+
+
 ### Frontend
 
 ---
