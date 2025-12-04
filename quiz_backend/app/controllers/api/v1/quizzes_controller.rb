@@ -1,6 +1,7 @@
 module Api
     module V1
         class QuizzesController < ApplicationController
+              skip_before_action :verify_authenticity_token
 
             #GET /api/v1/quizzes
             # desc: It will return all quizzes
@@ -13,22 +14,27 @@ module Api
             # desc: It will return quiz with questions
 
             def show
-                quiz = Quiz.find(params[:id])
+                quiz = Quiz.includes(:questions).find(params[:id])
 
                 render json: {
                     id: quiz.id,
                     title: quiz.title,
                     description: quiz.description,
-                    questions: quiz.questions.map do |question|
+                    questions: quiz.questions.map do |q|
                         {
-                            id: question.id,
-                            prompt: question.prompt,
-                            kind: question.kind,
-                            options: question.options
+                        id: q.id,
+                        prompt: q.prompt,
+                        kind: q.kind.to_s.downcase,
+                        options: begin
+                                q.options.is_a?(String) ? JSON.parse(q.options) : q.options
+                            rescue
+                                []
+                            end
                         }
                     end
                 }
             end
+
 
             # POST /api/v1/quizzes/:id/submit
 
