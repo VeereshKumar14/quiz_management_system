@@ -36,20 +36,24 @@ Build a small production ready Quiz management system with:
 ### Backend
 
 - install all the required gems
-- generate rails models 
+- generate rails models Quiz, Question and Result and Active Admin
 - Created the DB for those models
-
+- Implement Rails API and service class 
 
 
 ### Frontend
 
----
-## Scope
+- Implement User flow
+- Created Components UserForm, QuizList, QuizPlayer, ResultPage
+- Adding Routing
 
-### Backend
-
-### Frontend
 ---
-## Additional scope
+
 
 ## Good to have features
+
+- Need to add Pagination for list API
+- Add Rack attack middle file to prevent IP spoofing
+- improve the UI/UX using Material UI or Tawilwind CSS
+- Add the progress indicatiors and timers for user player page
+- Add analytics 
